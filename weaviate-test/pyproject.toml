@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "weaviate-test"
+version = "0.1.0"
+description = "Simple repo to test weaviate functionalities."
+authors = ["garbanlp <jorgegalber@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "weaviate_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+weaviate-client = "^3.19.1"
+httpx = "^0.24.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
