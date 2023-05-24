@@ -6,9 +6,13 @@ services:
     - 8080:8080
     restart: on-failure:0
     environment:
+      TRANSFORMERS_INFERENCE_API: 'http://t2v-transformers:8080'
       QUERY_DEFAULTS_LIMIT: 25
       AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
       PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
-      DEFAULT_VECTORIZER_MODULE: 'none'
-      CLUSTER_HOSTNAME: 'node1'
-
+      DEFAULT_VECTORIZER_MODULE: 'text2vec-transformers'
+      ENABLE_MODULES: 'text2vec-transformers'
+  t2v-transformers:
+    image: semitechnologies/transformers-inference:sentence-transformers-stsb-xlm-r-multilingual
+    environment:
+      ENABLE_CUDA: '0'
